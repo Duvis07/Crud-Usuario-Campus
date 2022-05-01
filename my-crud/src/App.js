@@ -15,41 +15,43 @@ function App() {
       edad: "33",
       nacionalidad: "Colombia",
     },
-    {
-      id: uuidv4(),
-      name: "Arley",
-      telefono: 123333,
-      edad: "34",
-      nacionalidad: "Turquia",
-    },
-    {
-      id: uuidv4(),
-      name: "Isabel",
-      telefono: 2113445667,
-      edad: "12",
-      nacionalidad: "Inglaterra",
-    },
-    {
-      id: uuidv4(),
-      name: "Maria",
-      telefono: 234567,
-      edad: "55",
-      nacionalidad: "Canada",
-    },
   ];
 
-  //Use state
-  const [users, setUsers] = useState(usersData);
-
-  const addUser = (user) => {
-    user.id = uuidv4();
-    setUsers([...users, user]);
+  //me carga los usuarios pregunta que si hay usuarios me retornne el array si no hay
+  //debe retornarme un array vacio
+  const loadData = () => {
+    const data = localStorage.getItem("myUsers");
+    if (data) {
+      const usersArray = JSON.parse(data);
+      return usersArray;
+    }
+    return [];
   };
 
-  // Eliminar usuario
+  //Me guarda los usuarios en el localStore
+  const saveToLocal = (array) => {
+    const str = JSON.stringify(array);
+    localStorage.setItem("myUsers", str);
+  };
+
+  //Use state
+  const [users, setUsers] = useState(loadData);
+
+  //me guarda los usuarios y me genera un  id aleatorio
+  const addUser = (user) => {
+    user.id = uuidv4();
+    setUsers((prev) => [...prev, user]);
+    const prevUsers = loadData();
+    saveToLocal([...prevUsers, user]);
+    console.log("saved");
+  };
+
+  //Me filtra los usuarios por id Eliminar y me los elimina
 
   const deleteUser = (id) => {
-    setUsers(users.filter((user) => user.id !== id));
+    setUsers((prev) => prev.filter((u) => u.id !== id));
+    const prevUsers = loadData();
+    saveToLocal(prevUsers.filter((u) => u.id !== id));
   };
 
   // Editar usuario
@@ -81,7 +83,7 @@ function App() {
     <div className="container">
       <div id="principal">
         {" "}
-        <h2>CRUD USUARIOS</h2>
+        <h2 id="crud">CRUD USUARIOS</h2>
       </div>
       <div className="flex-row">
         <div className="flex-large">
