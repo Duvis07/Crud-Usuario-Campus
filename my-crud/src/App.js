@@ -6,18 +6,8 @@ import "./index.css";
 import EditUserForm from "./Componentes/EditUserForm";
 
 function App() {
-  //se agregan los usuarios
-  const usersData = [
-    {
-      id: uuidv4(),
-      name: "Duvan",
-      telefono: 34456,
-      edad: "33",
-      nacionalidad: "Colombia",
-    },
-  ];
-
-  //me carga los usuarios pregunta que si hay usuarios me retornne el array si no hay
+ 
+  //me carga los usuarios y pregunta que si hay usuarios me retorne el array si no hay
   //debe retornarme un array vacio
   const loadData = () => {
     const data = localStorage.getItem("myUsers");
@@ -37,7 +27,9 @@ function App() {
   //Use state
   const [users, setUsers] = useState(loadData);
 
-  //me guarda los usuarios y me genera un  id aleatorio
+  /*mediante una funcion de flecha recibe un usuario de AddUser que se escribe en un formulario 
+  y se agrega el  usuario y aca se le agrega el  Id
+  */
   const addUser = (user) => {
     user.id = uuidv4();
     setUsers((prev) => [...prev, user]);
@@ -46,7 +38,7 @@ function App() {
     console.log("saved");
   };
 
-  //Me filtra los usuarios por id Eliminar y me los elimina
+  //Me filtra los usuarios por id y solo me elimina el id del usuario tecleado
 
   const deleteUser = (id) => {
     setUsers((prev) => prev.filter((u) => u.id !== id));
@@ -54,8 +46,11 @@ function App() {
     saveToLocal(prevUsers.filter((u) => u.id !== id));
   };
 
-  // Editar usuario
+  
   const [editing, setEditing] = useState(false);
+  /*
+  Me trae el  usuario ya editado
+  */
   const [currentUser, setCurrentUser] = useState({
     id: null,
     name: "",
@@ -64,6 +59,8 @@ function App() {
     nacionalidad: "",
   });
 
+  /*Me recibe el  usuario a modificar
+  */
   const editRow = (user) => {
     setEditing(true);
     setCurrentUser({
@@ -74,6 +71,10 @@ function App() {
       nacionalidad: user.nacionalidad,
     });
   };
+  /*
+   mediante el Map ejecuta una función dada en cada elemento del arreglo actual
+   y crea un nuevo arreglo con el resultado de la función dada.
+  */
   const updateUser = (id, updatedUser) => {
     setEditing(false);
     setUsers(users.map((user) => (user.id === id ? updatedUser : user)));
