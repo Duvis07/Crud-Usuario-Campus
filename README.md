@@ -21,9 +21,13 @@
 -----------------------------------Preguntas---------------------------------------------------------------
 
 1--> ¿Que son los props?
+
 2--> ¿Que es el  useState?
+
 3--> ¿Que es un componente en react?
+
 4--> ¿Qué es un estado?
+
 5--> ¿Qué son los hooks?
 
 
