@@ -1,4 +1,6 @@
 # Crud-Usuario-Campus
+Se crea un  crud de usuarios siguiendo los parametros del  video  del  campus, ademas se le hace las mejoras mencionadas en  dicha actividad.
+
 1-->Se le agregan mas campos al  crud como la edad, telefono  y nacionalidad
 ![image](https://user-images.githubusercontent.com/96325513/166158109-d9009e99-5886-4721-8dec-2fb38715076d.png)
 
@@ -30,6 +32,8 @@
 
 5--> ¿Qué son los hooks?
 
+
+Autor-->Duvan Arley Botero Rivillas
 
 
 
