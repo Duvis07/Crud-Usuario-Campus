@@ -18,6 +18,14 @@
 5--> Implementacion del paquete npm uuid, o identificador único que nos ayuda a que el  usuario tenga un Id unico.
 ![image](https://user-images.githubusercontent.com/96325513/166167840-8dbbdfad-516d-4ee8-8322-a9ff23b0ba8e.png)
 
+-----------------------------------Preguntas---------------------------------------------------------------
+
+1--> ¿Que son los props?
+2--> ¿Que es el  useState?
+3--> ¿Que es un componente en react?
+4--> ¿Qué es un estado?
+5--> ¿Qué son los hooks?
+
 
 
 
