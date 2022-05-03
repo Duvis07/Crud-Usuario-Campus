@@ -32,6 +32,8 @@ Se crea un  crud de usuarios siguiendo los parametros del  video  del  campus, a
 
 5--> ¿Qué son los hooks?
 
+Link video-->https://drive.google.com/file/d/1Z-kkg-8bVVBEIQlbZk7h_kHKZqauHCI_/view?usp=sharing
+
 
 Autor-->Duvan Arley Botero Rivillas
 
