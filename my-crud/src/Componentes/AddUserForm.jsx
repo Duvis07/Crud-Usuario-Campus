@@ -1,8 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 
-
-
 const AddUserForm = (props) => {
   const {
     register,
@@ -31,7 +29,7 @@ const AddUserForm = (props) => {
         type="text"
         name="name"
         {...register("name", {
-          required: { value: true, message: "campo requerido" },
+          required: { value: true, message: "Campo requerido" },
         })}
       />
       {errors.name && (

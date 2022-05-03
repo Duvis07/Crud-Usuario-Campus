@@ -6,7 +6,6 @@ import "./index.css";
 import EditUserForm from "./Componentes/EditUserForm";
 
 function App() {
- 
   //me carga los usuarios y pregunta que si hay usuarios me retorne el array si no hay
   //debe retornarme un array vacio
   const loadData = () => {
@@ -46,7 +45,6 @@ function App() {
     saveToLocal(prevUsers.filter((u) => u.id !== id));
   };
 
-  
   const [editing, setEditing] = useState(false);
   /*
   Me trae el  usuario ya editado
@@ -60,7 +58,7 @@ function App() {
   });
 
   /*Me recibe el  usuario a modificar
-  */
+   */
   const editRow = (user) => {
     setEditing(true);
     setCurrentUser({
@@ -101,7 +99,7 @@ function App() {
           )}
         </div>
         <div className="flex-large">
-          <h4>Usuarios</h4>
+          <h4>Lista de Usuarios</h4>
           <UserTable users={users} deleteUser={deleteUser} editRow={editRow} />
         </div>
       </div>
