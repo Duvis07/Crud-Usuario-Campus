@@ -30,7 +30,7 @@ const EditUserForm = (props) => {
   setValue("edad", props.currentUser.edad);
   setValue("nacionalidad", props.currentUser.nacionalidad);
 
-  //Actualizar usuario mediante el id
+  //Actualizar usuario mediante el (id)
   const onSubmit = (data, e) => {
     data.id = props.currentUser.id;
 
