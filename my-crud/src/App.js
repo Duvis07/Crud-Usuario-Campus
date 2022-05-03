@@ -17,7 +17,7 @@ function App() {
     return [];
   };
 
-  //Me guarda los usuarios en el localStore
+  //Me guarda los usuarios en el localStore saveLocal
   const saveToLocal = (array) => {
     const str = JSON.stringify(array);
     localStorage.setItem("myUsers", str);
@@ -27,7 +27,7 @@ function App() {
   const [users, setUsers] = useState(loadData);
 
   /*mediante una funcion de flecha recibe un usuario de AddUser que se escribe en un formulario 
-  y se agrega el  usuario y aca se le agrega el  Id
+  y se agrega el  usuario y aca se le agrega el  Id (addUser)
   */
   const addUser = (user) => {
     user.id = uuidv4();
@@ -37,7 +37,8 @@ function App() {
     console.log("saved");
   };
 
-  //Me filtra los usuarios por id y solo me elimina el id del usuario tecleado
+  /* Me filtra los usuarios por id y solo me elimina el id del usuario tecleado
+  */
 
   const deleteUser = (id) => {
     setUsers((prev) => prev.filter((u) => u.id !== id));
