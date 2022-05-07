@@ -1,10 +1,11 @@
 import React from "react";
-/*
-Componente que me sirve para pintar los usuarios en la vista
-*/
-//se llama al props
+
+/**
+ * @author Duvan Botero
+ * UserTable pinta los usuarios en la vista
+ */
+
 const UserTable = (props) => (
-  //se crean las tablas con  sus correspondientes campos
   <table>
     <thead>
       <tr>

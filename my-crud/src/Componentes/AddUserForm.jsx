@@ -1,6 +1,10 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 
+/**
+ * @author Duvan Botero
+ *  AddUserForm agrega los usuarios
+ */
 const AddUserForm = (props) => {
   const {
     register,
@@ -8,7 +12,11 @@ const AddUserForm = (props) => {
     handleSubmit,
   } = useForm();
 
-  //captura los usuarios al formulario y los envia al App
+  /**
+   * @author Duvan Botero
+   *  onSubmit Captura los usuarios al formulario y los envia al App
+   */
+
   const onSubmit = (data, e) => {
     console.log("onSubmit");
     console.log(data);
@@ -16,12 +24,14 @@ const AddUserForm = (props) => {
     e.target.reset();
   };
 
-  return (
-    /*
-    Se crea el formulario con  sus correspondientes label y input, ademas
+  /**
+    * @author Duvan Botero
+    *formulario con  sus correspondientes label y input, ademas
     mediante el  register se le hacen  validaciones de campos obligatorios 
     tipo de input al formulario
     */
+
+  return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <label>Nombre</label>
       <input

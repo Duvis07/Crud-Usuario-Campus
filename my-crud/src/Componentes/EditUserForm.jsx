@@ -2,9 +2,17 @@ import React from "react";
 import swal from "sweetalert";
 import { useForm } from "react-hook-form";
 
-//constante para editar los usuarios del  formulario
+/**
+ * @author Duvan Botero
+ * EditUserForm  edita los usuarios del  formulario
+ *
+ */
 const EditUserForm = (props) => {
-  //constante cuyo fin  es mostrarme un mensaje cuando el  cliente actualiza  un usuario
+  /**
+   * @author Duvan Botero
+   * AlertActualizarUsuario muestra un mensaje cuando el  cliente actualiza  un usuario
+   */
+
   const AlertActualizarUsuario = () => {
     swal({
       title: "Usuario Actualizado",
@@ -22,15 +30,21 @@ const EditUserForm = (props) => {
     defaultValues: props.currentUser,
   });
 
-  /*
-  Me recibe por defecto los valores del  formulario
-  */
+  /**
+   * @author Duvan Botero
+   *  Me recibe por defecto los valores del  formulario
+   */
+
   setValue("name", props.currentUser.name);
   setValue("telefono", props.currentUser.telefono);
   setValue("edad", props.currentUser.edad);
   setValue("nacionalidad", props.currentUser.nacionalidad);
 
-  //Actualizar usuario mediante el (id)
+  /**
+   * @author Duvan Botero
+   * onSubmit actualiza usuario mediante el (id)
+   */
+
   const onSubmit = (data, e) => {
     data.id = props.currentUser.id;
 
@@ -40,7 +54,12 @@ const EditUserForm = (props) => {
 
     e.target.reset();
   };
-  //Formulario para actualizar un usuario
+
+  /**
+   * @author Duvan Botero
+   * Formulario para actualizar un usuario
+   */
+
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <label>Nombre</label>

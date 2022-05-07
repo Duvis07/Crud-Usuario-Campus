@@ -6,8 +6,13 @@ import "./index.css";
 import EditUserForm from "./Componentes/EditUserForm";
 
 function App() {
-  //me carga los usuarios y pregunta que si hay usuarios me retorne el array si no hay
-  //debe retornarme un array vacio
+  /**
+   * @author Duvan Botero
+   *
+   *loadData carga los usuarios y pregunta que si hay usuarios me retorne
+   * el array si no hay debe retornarme un array vacio
+   */
+
   const loadData = () => {
     const data = localStorage.getItem("myUsers");
     if (data) {
@@ -17,18 +22,25 @@ function App() {
     return [];
   };
 
-  //Me guarda los usuarios en el localStore saveLocal
+  /**
+   *
+   * @author Duvan Botero
+   * saveToLocal guarda los usuarios en el localStore
+   */
+
   const saveToLocal = (array) => {
     const str = JSON.stringify(array);
     localStorage.setItem("myUsers", str);
   };
 
-  //Use state
   const [users, setUsers] = useState(loadData);
 
-  /*mediante una funcion de flecha recibe un usuario de AddUser que se escribe en un formulario 
-  y se agrega el  usuario y aca se le agrega el  Id (addUser)
-  */
+  /**
+   *
+   * @author Duvan Botero
+   * addUser recibe un  usuario y se le agrega el id de forma aleatoria
+   */
+
   const addUser = (user) => {
     user.id = uuidv4();
     setUsers((prev) => [...prev, user]);
@@ -36,9 +48,11 @@ function App() {
     saveToLocal([...prevUsers, user]);
     console.log("saved");
   };
-
-  /* Me filtra los usuarios por id y solo me elimina el id del usuario tecleado
-  */
+  /**
+   * @author Duvan Botero
+   * deleteUser filtra los usuarios por id y solo me elimina el id del usuario tecleado
+   *
+   */
 
   const deleteUser = (id) => {
     setUsers((prev) => prev.filter((u) => u.id !== id));
@@ -47,9 +61,7 @@ function App() {
   };
 
   const [editing, setEditing] = useState(false);
-  /*
-  Me trae el  usuario ya editado
-  */
+
   const [currentUser, setCurrentUser] = useState({
     id: null,
     name: "",
@@ -57,9 +69,11 @@ function App() {
     edad: "",
     nacionalidad: "",
   });
-
-  /*Me recibe el  usuario a modificar
+  /**
+   * @author Duvan Botero
+   * editRow recibe el  usuario a modificar
    */
+
   const editRow = (user) => {
     setEditing(true);
     setCurrentUser({
@@ -70,10 +84,7 @@ function App() {
       nacionalidad: user.nacionalidad,
     });
   };
-  /*
-   mediante el Map ejecuta una función dada en cada elemento del arreglo actual
-   y crea un nuevo arreglo con el resultado de la función dada.
-  */
+
   const updateUser = (id, updatedUser) => {
     setEditing(false);
     setUsers(users.map((user) => (user.id === id ? updatedUser : user)));
